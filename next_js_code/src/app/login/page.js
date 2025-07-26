@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { PrismaClient } from '@prisma/client';
-
+const bcrypt=require('bcrypt')
 const prisma = new PrismaClient();
 import { redirect } from 'next/navigation';
 
@@ -10,11 +10,16 @@ const page = ()=>{
         const email = formData.get('email');
         const password = formData.get('password');
 
+        
         const user = await prisma.user.findUnique({
             where: {email: email}
         });
+        
+        //bcrypt comparing
 
-        if(!user || user.password !== password){
+        const pass_check= await bcrypt.compare(password,user.password)
+
+        if(!user || pass_check===false){
             redirect('/error');
         }
 

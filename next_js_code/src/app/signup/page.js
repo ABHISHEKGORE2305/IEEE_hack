@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+const bcrypt=require('bcrypt')
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 import { redirect } from 'next/navigation';
@@ -9,18 +10,26 @@ const page = () =>{
         const email = formData.get('email');
         const name = formData.get('name');
         const password = formData.get('password');
-
+        
+        //finding duplicate users by email
         const user = await prisma.user.findUnique({
             where: {email}
         }) 
         if(user){
             redirect('/error');
         }
+
+        //logic for password hashing
+        const hashed_pass= await bcrypt.hash(password,5)
+        console.log(hashed_pass)
+
+        //adding user data in db 
+
         await prisma.user.create({
             data: {
                 name: name,
                 email: email,
-                password: password
+                password: hashed_pass
             }
         })
 
