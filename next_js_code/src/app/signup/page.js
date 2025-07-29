@@ -25,7 +25,7 @@ const page = () =>{
 
         //adding user data in db 
 
-        await prisma.user.create({
+        const newuser = await prisma.user.create({
             data: {
                 name: name,
                 email: email,
@@ -33,7 +33,7 @@ const page = () =>{
             }
         })
 
-        const sessionToken = `${email}`;
+        const sessionToken = `${newuser.email}-${newuser.role}`;
 
         cookies().set('session', sessionToken, {
             httpOnly: true,
@@ -60,6 +60,8 @@ const page = () =>{
             </div>
             <button type="submit">Sign Up</button>
         </form>
+        <p>Already have an account? <a href="/login">Login here</a></p>
+        <p>Are you a doctor??<a href="/doctor_signup">Register here</a></p>
         </div>
     );
 }

@@ -1,10 +1,6 @@
-import { PrismaClient } from '@prisma/client';
-import { redirect } from 'next/dist/server/api-utils';
+import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
-import Button from '../../components/button';
 import Link from 'next/link';
-
-const prisma = new PrismaClient();
 
 const Page = async () => {
   const cookieStore = await cookies();
@@ -17,21 +13,31 @@ const Page = async () => {
       </div>
     );
   }
-  const user = await prisma.user.findUnique({
-    where: { email: session.value }
-  })
-
-  return (
-    <div className="bg-amber-300 h-screen flex items-center justify-center">
-      <div>
-        <h1>Doctor appointment app.</h1>
-        <p>Welcome, {user?.name}!</p>
-        <p>Your email is: {user?.email}</p>
-        <p>Your role is: {user?.role}</p>
-        <Button />
+  const [email, role] = session.value.split('-');
+  if(role == 'doctor'){
+    redirect(`/doctor_dashboard/${email}`);
+  } else if(role == 'user'){
+    redirect(`/user_dashboard/${email}`);
+  } else {
+    return (
+      <div className="bg-red-300 h-screen flex items-center justify-center">
+        <h1 className="text-2xl font-bold">Invalid session. Please log in again.</h1>
+        <Link href='/login'>Login</Link>
       </div>
-    </div>
-  );
+    );
+  }
+
+  // return (
+  //   <div className="bg-amber-300 h-screen flex items-center justify-center">
+  //     <div>
+  //       <h1>Doctor appointment app.</h1>
+  //       <p>Welcome, {user?.name}!</p>
+  //       <p>Your email is: {user?.email}</p>
+  //       <p>Your role is: {user?.role}</p>
+  //       <Button />
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default Page;

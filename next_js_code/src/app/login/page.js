@@ -23,7 +23,7 @@ const page = ()=>{
             redirect('/error');
         }
 
-        const sessionToken = `${email}`;
+        const sessionToken = `${user.email}-${user.role}`;
 
         cookies().set('session', sessionToken, {
             httpOnly: true,
@@ -43,6 +43,7 @@ const page = ()=>{
 
                 <button type="submit">Login</button>
             </form>
+            <p>Don't have an account? <a href="/signup">Register here</a></p>
         </div>
     );
 }
