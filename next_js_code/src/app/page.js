@@ -15,9 +15,9 @@ const Page = async () => {
   }
   const [email, role] = session.value.split('-');
   if(role == 'doctor'){
-    redirect(`/doctor_dashboard/${email}`);
+    redirect(`/doctor_dashboard`);
   } else if(role == 'user'){
-    redirect(`/user_dashboard/${email}`);
+    redirect(`/user_dashboard`);
   } else {
     return (
       <div className="bg-red-300 h-screen flex items-center justify-center">

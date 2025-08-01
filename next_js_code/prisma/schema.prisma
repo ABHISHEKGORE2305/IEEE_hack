@@ -35,4 +35,17 @@ model Doctor {
   license String?
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
+  clinic Clinic ? @relation(fields: [clinicId], references: [id])
+  clinicId String? @map("clinic_id") @db.ObjectId
+}
+
+model Clinic {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
+  address   String?
+  phone     String?
+  email     String?  @unique
+  doctors   Doctor[]
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
 }

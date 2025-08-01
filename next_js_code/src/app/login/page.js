@@ -11,12 +11,17 @@ const page = ()=>{
         const password = formData.get('password');
 
         
-        const user = await prisma.user.findUnique({
+        let user = await prisma.user.findUnique({
             where: {email: email}
         });
-        
-        //bcrypt comparing
-
+        if(!user){
+            user = await prisma.doctor.findUnique({
+                where: {email: email}
+            })
+            if(!user){
+                redirect('/error'); // Redirect if user or doctor not found
+            }
+        }
         const pass_check= await bcrypt.compare(password,user.password)
 
         if(!user || pass_check===false){
@@ -29,7 +34,11 @@ const page = ()=>{
             httpOnly: true,
         });
 
-        redirect('/');
+        if(user.role == 'user'){
+            redirect('/user_dashboard');
+        } else if(user.role == 'doctor'){
+            redirect('/doctor_dashboard');
+        }
     }
     return (
         <div>

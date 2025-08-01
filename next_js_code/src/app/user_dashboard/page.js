@@ -1,21 +1,15 @@
 
 import React from 'react';
-import { PrismaClient } from '@prisma/client';
-import CalendarClient from '../../../../components/calender';
-import Image from 'next/image';
+import CalendarClient from '../../../components/calender';
+import Button from '../../../components/button';
+import isProtected from '../../../components/protected';
 
-const prisma = new PrismaClient();
-
-const Page = async({ params }) => {
-    const email = params.id.replace('%40', '@');
-    const user = await prisma.user.findUnique({
-        where: {
-            email: email
-        }
-    });
+const Page = async() => {
+    const user = await isProtected();
     return (
         <div className='h-full w-full py-4 px-6 bg-gray-200 '>
             <h1 className="text-3xl font-bold text-blue-500">Welcome, {user?.name || 'User'}</h1>
+            <Button></Button>
             <hr className='border-slate-400 mt-4'></hr>
             <div className='flex h-[45%] mb-4'>
             <div className='h-full aspect-1/1 bg-slate-100 mt-4 p-6 rounded-lg'>
@@ -42,7 +36,7 @@ const Page = async({ params }) => {
             <CalendarClient/>
             </div>
             <div className='flex h-[45%]'>
-                <div className='h-full w-full bg-slate-100 mt-4 p-4 rounded-lg overflow-y-scroll'>
+                <div className='h-full w-full bg-slate-100 mt-4 p-4 rounded-lg overflow-y-scroll no-scrollbar'>
                     <h2 className="text-2xl font-semibold mb-4">Your Appointments</h2>
                     
                     <p>No appointments scheduled.</p>

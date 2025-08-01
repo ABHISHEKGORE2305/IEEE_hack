@@ -39,7 +39,7 @@ const page = () =>{
             httpOnly: true,
         });
 
-        redirect('/');
+        redirect('/user_dashboard');
     }
     return (
         <div>

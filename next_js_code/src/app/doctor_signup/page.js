@@ -37,7 +37,7 @@ const page = ()=>{
         cookies().set('session', sessionToken, {
             httpOnly: true,
         });
-        redirect('/')
+        redirect('/doctor_dashboard');
     }
     return (
         <>
