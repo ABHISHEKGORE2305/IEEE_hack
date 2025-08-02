@@ -9,7 +9,7 @@ import dayjs from 'dayjs';
 export default function CalendarClient() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateCalendar defaultValue={dayjs('2025-08-02')}/>
+      <DateCalendar defaultValue={dayjs('2025-08-02')} className='h-full'/>
     </LocalizationProvider>
   );
 }

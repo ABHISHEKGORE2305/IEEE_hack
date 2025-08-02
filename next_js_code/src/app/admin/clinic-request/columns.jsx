@@ -11,6 +11,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/ui/dropdown-menu"
+import verify from "./verify"
+import unverify from "./delete"
+
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -18,7 +21,7 @@ import {
 
 export const columns = [
   {
-    accessorKey: "status",
+    accessorKey: "verified",
     header: "Status",
   },
   {
@@ -26,23 +29,23 @@ export const columns = [
     header: "Email",
   },
   {
-    accessorKey:"address",
-    header:"address"
+    accessorKey:"name",
+    header:"Name"
 
   },
   {
-    accessorKey:"phone",
-    header:"phone"
+    accessorKey:"specialization",
+    header:"Specialization"
 
   },
   {
-    accessorKey:"clinic",
-    header:"clinic"
+    accessorKey:"license",
+    header:"License"
   },
   {
     id: "actions",
     cell: ({ row }) => {
-      const payment = row.original
+      const data = row.original
  
       return (
         <DropdownMenu>
@@ -55,13 +58,19 @@ export const columns = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => navigator.clipboard.writeText(data.id)}
             >
               Copy payment ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={unverify(data.email)}
+            >delete</DropdownMenuItem>
+            <DropdownMenuItem 
+              onClick={
+                verify(data.email)
+              }
+            >verify</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

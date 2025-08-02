@@ -24,3 +24,5 @@ export default async function isProtected() {
     }
     return user;
 }
+
+

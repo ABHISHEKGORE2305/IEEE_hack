@@ -1,16 +1,13 @@
 import { PrismaClient } from '@prisma/client';
-import Button from '../../../components/ui/button';
+import Button from '../../components/ui/button';
+import isdoctor from '@/components/ui/isdoctor';
+import { redirect } from 'next/navigation';
 
-const prisma = new PrismaClient();
-
-const Page = async({ params }) => {
-    const email = await params.id.replace('%40', '@');
-    const doctor = await prisma.doctor.findUnique({
-        where: {
-            email: email
-        }
-    });
-    
+const Page = async() => {
+    const doctor = await isdoctor()
+    if(!doctor){
+        redirect('/login')
+    }
     if(doctor.verified){
         return (
             <div>
@@ -25,6 +22,7 @@ const Page = async({ params }) => {
             <div className='flex flex-col items-center justify-center h-screen text-red-500'>
                 <h1>Verification Pending</h1>
                 <p>Your account is not yet verified .</p>
+                <Button></Button>
             </div>
         );
     }
