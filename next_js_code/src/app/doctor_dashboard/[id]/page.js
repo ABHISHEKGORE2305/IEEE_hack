@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import Button from '../../../../components/button';
+import Button from '../../../components/ui/button';
 
 const prisma = new PrismaClient();
 
