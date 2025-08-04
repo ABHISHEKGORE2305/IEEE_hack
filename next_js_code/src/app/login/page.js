@@ -30,7 +30,9 @@ const page = ()=>{
 
         const sessionToken = `${user.email}-${user.role}`;
 
-        cookies().set('session', sessionToken, {
+        const cookkieStore = await cookies();
+
+        cookkieStore.set('session', sessionToken, {
             httpOnly: true,
         });
 
