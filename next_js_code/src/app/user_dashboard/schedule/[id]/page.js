@@ -2,102 +2,101 @@ import isProtected from "@/components/ui/protected";
 import {PrismaClient} from '@prisma/client';
 import Link from "next/link";
 
-// const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
-// const page = async ({params}) => {
-//     const yser = await isProtected();
-//     if (!yser) {
-//         return redirect('/login');
-//     }
-    // const clinicId = params.id;
-    // const clinic = await prisma.clinic.findUnique({
-    //     where: {
-    //         id : clinicId
-    //     }
-    // })
-    // if (!clinic) {
-    //     return redirect('/error');
-    // }
-    // const doctors = await prisma.doctor.findMany({
-    //     where: {
-    //         clinicId: clinicId
-    //     }
-    // })
-
-const clinic=
-    {
-        name:"apollo",
-        address:"hill way",
-        phone:"111111111",
-        id:"3444343"
+const page = async ({params}) => {
+    const yser = await isProtected();
+    if (!yser) {
+        return redirect('/login');
     }
+    const clinicId = params.id;
+    const clinic = await prisma.clinic.findUnique({
+        where: {
+            id : clinicId
+        }
+    })
+    if (!clinic) {
+        return redirect('/error');
+    }
+    const doctors = await prisma.doctor.findMany({
+        where: {
+            clinicId: clinicId
+        }
+    })
+
+// const clinic=
+//     {
+//         name:"apollo",
+//         address:"hill way",
+//         phone:"111111111",
+//         id:"3444343"
+//     }
 
 
-const doctors=[
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-    {
-        id:123233,
-        name:"ramuu",
-        specialization:"cardiologist"
-    },
-]
+// const doctors=[
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+//     {
+//         id:123233,
+//         name:"ramuu",
+//         specialization:"cardiologist"
+//     },
+// ]
 
-const clinicId=12345
-const page=()=>{
+// const clinicId=12345
     return(
         <div className="bg-blue-200 grid grid-cols-4 h-full overflow-y-scroll ">
         <div className="bg-amber-200 rounded-2xl p-2 m-2 col-span-4">
