@@ -7,6 +7,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient()
 
+
 const Page = async() => {
     const user = await isProtected();
     const appointments = await prisma.appointment.findMany({
