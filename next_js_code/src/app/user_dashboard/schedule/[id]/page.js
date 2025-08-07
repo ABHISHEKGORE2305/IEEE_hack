@@ -1,10 +1,13 @@
 import isProtected from "@/components/ui/protected";
 import {PrismaClient} from '@prisma/client';
 import Link from "next/link";
+import Search from "../../search";
+
 
 const prisma = new PrismaClient();
 
-const page = async ({params}) => {
+
+const page = async ({params,searchParams}) => {
     const yser = await isProtected();
     if (!yser) {
         return redirect('/login');
@@ -23,6 +26,17 @@ const page = async ({params}) => {
             clinicId: clinicId
         }
     })
+    
+    const query= await searchParams?.query||""
+
+    //filtered docs
+
+    const filtereddoctors=Array.isArray(doctors)?doctors.filter((doc)=>{
+    return doc.name.toLowerCase().includes(query.toLowerCase())
+   }):[]
+
+
+
     return(
         <div className="bg-gradient-to-br from-blue-100 to-blue-300 min-h-screen grid grid-cols-4 gap-4 h-full overflow-y-auto p-4">
           {/* Clinic Info Header */}
@@ -32,6 +46,7 @@ const page = async ({params}) => {
               <p className="text-blue-100 text-sm">Address: {clinic.address}</p>
               <p className="text-blue-100 text-sm">Phone: {clinic.phone}</p>
             </div>
+            <Search placeholder="search doctors" query={query}/>
             <div className="mt-4 md:mt-0">
               <svg className="w-20 h-20 text-blue-200 opacity-60" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
@@ -42,7 +57,7 @@ const page = async ({params}) => {
           
           {/* Doctors List */}
           <ol className="col-span-4 flex flex-wrap gap-6 justify-center">
-            {doctors.map((doctor) => (
+            {filtereddoctors.map((doctor) => (
               <li key={doctor.id} className="bg-white/80 shadow-lg rounded-2xl p-4 m-2 w-72 flex flex-col items-center hover:shadow-2xl transition-shadow duration-200">
                 {/* Doctor Avatar */}
                 <div className="rounded-full bg-blue-200 w-28 h-28 flex items-center justify-center mb-3 shadow">
