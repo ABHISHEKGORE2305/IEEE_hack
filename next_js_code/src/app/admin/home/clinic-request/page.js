@@ -1,5 +1,5 @@
-import { columns, Payment } from "@/app/admin/clinic-request/columns"
-import { DataTable } from "@/app/admin/clinic-request/data-table"
+import { columns, Payment } from "@/app/admin/home/clinic-request/columns"
+import { DataTable } from "@/app/admin/home/clinic-request/data-table"
 import Searching from "@/components/ui/ui/search"
 import search  from "@/components/ui/ui/search"
 import getDoctors from "./getdoctors"
