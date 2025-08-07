@@ -11,10 +11,10 @@ export default function UserDashboardLayout({ children }) {
                 <h1 className="text-white text-3xl text-center">CLINIK</h1>
                 <hr className="border-slate-100"></hr>
                 <ul className="text-white text-lg">
-                    <li className="hover:bg-blue-600 p-2 rounded font-thin"><Link href='/user_dashboard'>Dashboard</Link></li>
+                    <li className="hover:bg-blue-600 p-2 rounded font-thin"><Link href='/doctor_dashboard'>Dashboard</Link></li>
                     
-                    <li className="hover:bg-blue-600 p-2 rounded"><Link href='/user_dashboard/appointments'>Appointments</Link></li>
-                    <li className="hover:bg-blue-600 p-2 rounded"><Link href='/profile'>Profile</Link></li>
+                    <li className="hover:bg-blue-600 p-2 rounded"><Link href='/doctor_dashboard/appointments'>Appointments</Link></li>
+                    <li className="hover:bg-blue-600 p-2 rounded"><Link href='/doctor_dashboard/profile'>Profile</Link></li>
                     <li className="hover:bg-blue-600 p-2 rounded"><Link href='/settings'>Settings</Link></li>
                 </ul>
                 <hr className="border-slate-100 mt-4"></hr>
