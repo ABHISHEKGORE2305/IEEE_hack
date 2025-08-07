@@ -19,10 +19,14 @@ model User {
   name      String?
   email     String?  @unique
   password  String?
-  role      String?  @default("user")
+  role      String  @default("user")
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
   appointments Appointment[]
+  profile String @default("https://cdn-icons-png.flaticon.com/512/6073/6073873.png")
+  dob DateTime?
+  address String?
+  phone String?
 }
 
 model Doctor {
@@ -39,14 +43,17 @@ model Doctor {
   clinic Clinic ? @relation(fields: [clinicId], references: [id])
   clinicId String? @map("clinic_id") @db.ObjectId
   appointments Appointment[]
+  profile String @default("https://cdn-icons-png.flaticon.com/512/6073/6073873.png")
+  rating Int @default(0)
+  experience Int @default(0)
 }
 
 model Clinic {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
   name      String?
   address   String?
   phone     String?
-  email     String?  @unique
+  email     String? @unique
   doctors   Doctor[]
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt

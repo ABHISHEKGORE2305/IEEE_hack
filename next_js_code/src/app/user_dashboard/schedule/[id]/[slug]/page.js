@@ -19,7 +19,7 @@ const page = async ({ params }) => {
     return redirect("/login");
   }
   return (
-    <div className="bg-gradient-to-br from-blue-100 to-blue-300 rounded-2xl m-2 grid grid-cols-3 gap-6 min-h-[80vh] shadow-lg">
+    <div className="bg-gradient-to-br from-blue-100 to-blue-300 rounded-2xl pr-4 m-2 grid grid-cols-3 gap-6 min-h-[90vh] shadow-lg mt-10">
       {/* Left Panel: Doctor Info */}
       <div className="bg-blue-50 m-2 p-6 rounded-2xl flex flex-col items-center col-span-1 min-w-[280px] shadow-md">
         {/* Doctor Avatar */}
@@ -105,7 +105,7 @@ const page = async ({ params }) => {
       <div className="bg-blue-50 m-2 p-6 rounded-2xl w-full flex flex-col items-center col-span-1 shadow-md">
         <h1 className="mt-2 text-2xl font-bold text-blue-900 mb-6">Schedule an Appointment</h1>
         <form
-          className="flex flex-col gap-5 w-full max-w-xs"
+          className="flex flex-col gap-5 w-full"
           action={async (formData) => {
             "use server";
             const date = formData.get("date");

@@ -13,7 +13,7 @@ export default function UserDashboardLayout({ children }) {
                     <li className="hover:bg-blue-600 p-2 rounded font-thin"><Link href='/user_dashboard'>Dashboard</Link></li>
                     <li className="hover:bg-blue-600 p-2 rounded"><Link href='/user_dashboard/schedule'>Schedule</Link></li>
                     <li className="hover:bg-blue-600 p-2 rounded"><Link href='/user_dashboard/appointments'>Appointments</Link></li>
-                    <li className="hover:bg-blue-600 p-2 rounded"><Link href='/profile'>Profile</Link></li>
+                    <li className="hover:bg-blue-600 p-2 rounded"><Link href='/user_dashboard/profile'>Profile</Link></li>
                     <li className="hover:bg-blue-600 p-2 rounded"><Link href='/settings'>Settings</Link></li>
                 </ul>
                 <hr className="border-slate-100 mt-4"></hr>

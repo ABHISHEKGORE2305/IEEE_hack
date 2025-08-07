@@ -13,6 +13,7 @@ const page = ()=>{
         const password = formdata.get('password');
         const specialization = formdata.get('specialization');
         const license = formdata.get('license');
+        const clinicId = formdata.get('clinic')
 
         const user = await prisma.doctor.findUnique({
             where:{
@@ -29,7 +30,8 @@ const page = ()=>{
                 email: email,
                 password: hashed_pass,
                 specialization: specialization,
-                license: license
+                license: license,
+                clinicId
             }
         })
 
@@ -112,6 +114,18 @@ const page = ()=>{
                                 required
                                 className="w-full px-4 py-2 border border-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 text-base transition"
                                 placeholder="Enter your license number"
+                                autoComplete="off"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="clinic" className="block text-blue-900 font-semibold mb-2 text-base">Your Clinic ID</label>
+                            <input
+                                type="text"
+                                id="clinicId"
+                                name="clinic"
+                                required
+                                className="w-full px-4 py-2 border border-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 text-base transition"
+                                placeholder="Enter your Clinic's registration ID"
                                 autoComplete="off"
                             />
                         </div>
