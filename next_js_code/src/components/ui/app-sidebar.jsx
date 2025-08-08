@@ -21,12 +21,12 @@ const items = [
   },
   {
     title: "clinic request",
-    url: "/admin/clinic-request",
+    url: "/admin/home/clinic-request",
     icon: Hospital,
   },
   {
     title: "add clinic",
-    url: "/admin/add-clinic",
+    url: "/admin/home/add-clinic",
     icon: CirclePlus,
   },
   

@@ -1,3 +1,4 @@
+"use server"
 import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -15,6 +16,9 @@ export default async function isdoctor(){
     const doctor = prisma.doctor.findUnique({
         where: {
             email
+        },
+        include:{
+            clinic: true
         }
     })
     if(!doctor){

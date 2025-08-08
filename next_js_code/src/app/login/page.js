@@ -19,13 +19,13 @@ const page = ()=>{
                 where: {email: email}
             })
             if(!user){
-                redirect('/error'); // Redirect if user or doctor not found
+                redirect('/login'); // Redirect if user or doctor not found
             }
         }
         const pass_check= await bcrypt.compare(password,user.password)
 
         if(!user || pass_check===false){
-            redirect('/error');
+            redirect('/login');
         }
 
         const sessionToken = `${user.email}-${user.role}`;

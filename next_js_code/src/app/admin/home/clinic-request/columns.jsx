@@ -11,13 +11,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/ui/dropdown-menu"
-import verify from "./verify"
-import unverify from "./delete"
 
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-
+// Instead of importing server actions directly, use fetch to call API routes
+import { useRouter } from "next/navigation"
 
 export const columns = [
   {
@@ -46,7 +42,32 @@ export const columns = [
     id: "actions",
     cell: ({ row }) => {
       const data = row.original
- 
+      const router = useRouter();
+
+      // Handler for verifying a doctor
+      const handleVerify = async () => {
+        await fetch("/api/doctor/verify", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: data.email }),
+        });
+        router.refresh();
+      };
+
+      // Handler for unverifying (deleting) a doctor
+      const handleUnverify = async () => {
+        await fetch("/api/doctor/unverify", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: data.email }),
+        });
+        router.refresh();
+      };
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -55,21 +76,13 @@ export const columns = [
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuContent align="end">                       
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(data.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              onClick={unverify(data.email)}
+              onClick={handleUnverify}
             >delete</DropdownMenuItem>
+            <DropdownMenuSeparator />
             <DropdownMenuItem 
-              onClick={
-                verify(data.email)
-              }
+              onClick={handleVerify}
             >verify</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
