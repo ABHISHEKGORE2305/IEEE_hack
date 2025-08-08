@@ -3,99 +3,59 @@
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
-import Navbar from '../components/Navbar';
-
-
-
-
-// Appointment icon (calendar style)
-export function AppointmentIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width={26} height={26} fill="none" aria-hidden="true">
-      <rect x="3" y="6" width="18" height="14" rx="4" fill="#E9F2FF" />
-      <rect x="7" y="10" width="10" height="2" rx="1" fill="#1877F2" />
-    </svg>
-  );
-}
-
-// Clinic icon (hospital style)
-export function ClinicIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width={24} height={24} fill="none" aria-hidden="true">
-      <rect x="4" y="8" width="16" height="11" rx="2.5" fill="#EFFFF7" />
-      <path d="M12 11v5" stroke="#22cb8a" strokeWidth="2" strokeLinecap="round" />
-      <path d="M9 13h6" stroke="#22cb8a" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-
-
 
 const Page = async () => {
   const cookieStore = await cookies();
-  
   const session = cookieStore.get('session');
   if(!session){
     return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200">
-      <Navbar />
+      <header className="w-full px-8 py-5 flex justify-between items-center bg-white/90 shadow-md sticky top-0 z-30">
+        <div className="flex items-center gap-2">
+          <svg className="h-8 w-8 text-blue-700" fill="none" viewBox="0 0 32 32">
+            <circle cx="16" cy="16" r="16" fill="#2563eb" />
+            <path d="M16 8v16M8 16h16" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/>
+          </svg>
+          <span className="text-2xl font-extrabold text-blue-700 tracking-tight">DocBook</span>
+        </div>
+        <nav className="flex gap-6">
+          <Link href="/login" className="text-blue-700 font-medium hover:text-blue-900 transition">Login</Link>
+          <Link href="/signup" className="text-blue-700 font-medium hover:text-blue-900 transition">Register</Link>
+          <Link href="/doctor_signup" className="text-blue-700 font-medium hover:text-blue-900 transition">For Doctors</Link>
+        </nav>
+      </header>
       <main className="flex-1 flex flex-col items-center justify-start px-4 overflow-y-auto">
         {/* Hero Section */}
-       <section className="bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200  min-h-screen px-4 flex items-center w-full">
-  <div className="max-w-[1240px] mx-auto flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16 w-full">
-    
-    {/* Left: Text & CTA */}
-    <div className="flex-1 min-w-0 md:pr-2">
-      <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5 tracking-tight">
-        The Best Reliable<br className="hidden sm:inline" />
-        Health Service In<br className="hidden md:inline" />
-        Your Hands
-      </h1>
-      <p className="text-base sm:text-lg text-slate-500 max-w-md mb-8 leading-relaxed w-full block">
-        Our skilled doctors have tremendous experience with a wide range of diseases to serve the needs of our patients.
-      </p>
-      {/* <div className=" flex gap-5 items-center">
-       <svg className="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/></svg>
-
-      <input type='text' placeholder='Search Clinics....' className='w-full px-4 py-2 text-black-500 border border-black-300 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200' />
-        
-      </div> */}
-    </div>
-
-    {/* Right: Doctor image + Floating Info */}
-    <div className="flex-1 flex justify-center items-center relative">
-      <div className="relative w-[280px] h-[340px] sm:w-[320px] sm:h-[380px] md:w-[360px] md:h-[420px] lg:w-[400px] lg:h-[460px]">
-        <img
-          src="./images/DoctorImg1.jpeg"
-          alt="Doctor"
-          className="w-full h-full object-cover object-top bg-transparent  shadow-lg border"
-          style={{
-            
-          }}
-        />
-
-        {/* Floating card: Appointment */}
-        <div className="absolute -left-16 top-4 flex items-center gap-2 min-w-[164px] bg-white/80 backdrop-blur-md rounded-xl shadow-lg px-3.5 py-3 ring-1 ring-slate-100 z-20">
-          <span>
-            <AppointmentIcon />
-          </span>
-          <span className="font-medium text-slate-900">Book Appointment Easily</span>
-        </div>
-
-        {/* Floating card: Clinics */}
-        <div className="absolute -right-10 bottom-6 flex items-center gap-2 min-w-[108px] bg-white/90 backdrop-blur-md rounded-xl shadow-lg px-3.5 py-3 ring-1 ring-slate-100 z-20">
-          <span>
-            <ClinicIcon />
-          </span>
-          <span className="font-medium text-slate-900">10+ clinics</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+        <section className="w-full flex flex-col md:flex-row items-center justify-between gap-10 py-16 md:py-24 max-w-7xl mx-auto">
+          <div className="flex-1 flex flex-col items-start md:items-start text-left">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4 leading-tight drop-shadow">
+              Your Health, <span className="text-blue-600">Your Schedule</span>
+            </h2>
+            <p className="text-lg md:text-xl text-blue-900 mb-8 font-medium max-w-lg">
+              Book appointments with trusted doctors, manage your healthcare journey, and take control of your well-being—all in one place.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 w-full justify-start">
+              <Link href="/signup" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow transition-all duration-200">
+                  Get Started
+                </button>
+              </Link>
+              <Link href="/login" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-white border-2 border-blue-700 text-blue-700 font-semibold py-3 px-8 rounded-lg text-lg hover:bg-blue-50 transition-all duration-200">
+                  Login
+                </button>
+              </Link>
+            </div>
+          </div>
+          <div className="flex-1 flex items-center justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+              alt="Doctor and patient"
+              className="rounded-3xl shadow-2xl w-full max-w-md object-cover border-4 border-blue-200"
+              loading="eager"
+            />
+          </div>
+        </section>
         {/* Features Section */}
         <section className="w-full py-12 md:py-20 bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100">
           <div className="max-w-6xl mx-auto flex flex-col items-center">
