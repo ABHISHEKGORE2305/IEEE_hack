@@ -9,7 +9,7 @@ export default async function DemoPage() {
   return (
     <div className="container mx-auto py-10">
       <div className="text-3xl text-bold p-6">Clinic Requests</div>
-      <Searching placeholder="search clinic">search</Searching>
+      {/* <Searching placeholder="search clinic">search</Searching> */}
       <DataTable columns={columns} data={data} />
     </div>
   )

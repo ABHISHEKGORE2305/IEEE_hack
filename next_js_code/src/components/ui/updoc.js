@@ -3,13 +3,14 @@
 import { PrismaClient } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
 import isdoctor from './isdoctor'
+import { redirect } from 'next/navigation'
 
 
 const prisma = new PrismaClient()
 
 export async function uploadpic(profile) {
 const doctor = await isdoctor()
-  await prisma.user.update({
+  await prisma.doctor.update({
     where: {
       id: doctor.id
     },
@@ -18,5 +19,5 @@ const doctor = await isdoctor()
     }
   })
 
-  revalidatePath('/profile')
+  redirect('/doctor_dashboard/profile')
 }

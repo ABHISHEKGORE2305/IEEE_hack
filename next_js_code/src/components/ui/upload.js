@@ -1,8 +1,8 @@
 'use server'
 
 import { PrismaClient } from '@prisma/client'
-import { revalidatePath } from 'next/cache'
 import isProtected from './protected'
+import { redirect } from 'next/navigation'
 
 const prisma = new PrismaClient()
 
@@ -17,5 +17,5 @@ const user = await isProtected()
     }
   })
 
-  revalidatePath('/profile')
+  redirect('/profile')
 }
