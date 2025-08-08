@@ -17,5 +17,5 @@ const user = await isProtected()
     }
   })
 
-  redirect('/profile')
+  redirect('/user_dashboard/profile')
 }

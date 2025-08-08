@@ -46,7 +46,7 @@ const page = async ({params,searchParams}) => {
               <p className="text-blue-100 text-sm">Address: {clinic.address}</p>
               <p className="text-blue-100 text-sm">Phone: {clinic.phone}</p>
             </div>
-            <Search placeholder="search doctors" query={query}/>
+            
             <div className="mt-4 md:mt-0">
               <svg className="w-20 h-20 text-blue-200 opacity-60" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
@@ -54,6 +54,7 @@ const page = async ({params,searchParams}) => {
               </svg>
             </div>
           </div>
+          <Search placeholder="search doctors" query={query}/>
           
           {/* Doctors List */}
           <ol className="col-span-4 flex flex-wrap gap-6 justify-center">

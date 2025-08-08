@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Button from '../../components/ui/button';
 
 export default function UserDashboardLayout({ children }) {
     const componentName = children.type?.name || "UnknownComponent";
@@ -17,7 +17,11 @@ export default function UserDashboardLayout({ children }) {
                     <li className="hover:bg-blue-600 p-2 rounded"><Link href='/settings'>Settings</Link></li>
                 </ul>
                 <hr className="border-slate-100 mt-4"></hr>
+                <div>
+                <Button></Button>
             </div>
+            </div>
+            
             <div className="h-full w-5/6">
                 {children}
             </div>

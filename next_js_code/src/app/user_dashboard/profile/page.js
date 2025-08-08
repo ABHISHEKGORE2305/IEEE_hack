@@ -1,15 +1,33 @@
 "use client"
 import { adddetails } from "@/components/ui/details";
+import isProtected from "@/components/ui/protected";
 import { uploadpic } from "@/components/ui/upload";
 import { CldUploadWidget } from "next-cloudinary";
+import { useEffect } from "react";
+import {useState} from "react"
 
 const page = ()=>{
+    const [user, setUser] = useState(null);
+        const [loading, setLoading] = useState(true);
+    
+        useEffect(() => {
+            const fetchDoctor = async () => {
+                const user = await isProtected();
+                setUser(user);
+                setLoading(false);
+            };
+            fetchDoctor();
+        }, []);
+    
+        if (loading) {
+            return <div className="flex items-center justify-center h-64 text-lg font-semibold">Loading...</div>;
+        }
     return (
         <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
             <div className="flex flex-col items-center gap-4">
                 <div className="relative">
                     <img
-                        src={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}
+                        src={user.profile}
                         alt="Profile"
                         className="w-32 h-32 rounded-full object-cover border-4 border-blue-200"
                     />

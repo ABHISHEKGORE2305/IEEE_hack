@@ -54,9 +54,9 @@ const page = async ()=>{
                             <div className="font-semibold text-blue-700 w-20 text-center">
                                 {app.time ? `${app.time}:00` : "--:--"}
                             </div>
-                            <StatusButton  status="done" id={app.id}>done</StatusButton>
-                            <StatusButton  status="cancel" id={app.id}>cancel</StatusButton>
-                            <StatusButton  status="accept" id={app.id}>accept</StatusButton>
+                            <StatusButton color="red"  status="done" id={app.id}>done</StatusButton>
+                            <StatusButton  color="red" status="cancel" id={app.id}>cancel</StatusButton>
+                            <StatusButton  color="blue" status="accept" id={app.id}>accept</StatusButton>
 
                             <div className="h-2/3 aspect-square flex items-center justify-center">
                                 {app.status === "done" ? (

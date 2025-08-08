@@ -1,12 +1,12 @@
 "use client"
 import React from 'react'
 
-function StatusButton({ id,status }) {
+function StatusButton({ id,status,color }) {
   // Only show the button if appointment is not already cancelled/done
 
   return (
     <button
-      className='bg-blue-300  w-12 h-7 flex items-center justify-center rounded hover:bg-blue-200 transition'
+      className={`border-1  w-12 h-7 flex items-center justify-center rounded-2xl p-2 text-xs hover:bg-blue-200 transition`}
       title="Cancel appointment"
       onClick={async (e) => {
         e.stopPropagation();
