@@ -47,11 +47,13 @@ const Page = async () => {
               </Link>
             </div>
           </div>
+        
           <div className="w-1/2 flex-1 flex items-center justify-center">
             <img
               src="/doctor-removebg.png"
               alt="Doctor and patient"
               className=" w-full object-cover"
+
               loading="eager"
             />
           </div>
