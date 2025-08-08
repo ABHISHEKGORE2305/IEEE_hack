@@ -1,7 +1,7 @@
 # IEEE_hack
 repository for IEEE hackthon project 
 
-steps to run locally:
+steps to run locally
 
 1) git clone <repolink>
 
