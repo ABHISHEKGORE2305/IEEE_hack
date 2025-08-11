@@ -52,7 +52,7 @@ const Page = async() => {
             </div>
             <div className='flex h-[45%]'>
                 <div className='h-full w-full bg-slate-100 mt-4 p-4 rounded-lg overflow-y-scroll no-scrollbar'>
-                    <h2 className="text-2xl font-semibold mb-4">Your Appointments</h2>
+                    <h2 className="text-2xl font-semibold mb-4">Your pending Appointments</h2>
                     {appointments.length>0? appointments.map(app => {
                             console.log(app.user)
                             return(

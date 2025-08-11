@@ -25,7 +25,7 @@ const page = async ({ params }) => {
         {/* Doctor Avatar */}
         <div className="bg-blue-200 rounded-full h-32 w-32 m-2 mt-4 flex items-center justify-center overflow-hidden shadow">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png"
+            src={doctor.profile}
             alt="Doctor Avatar"
             className="h-full w-full object-cover rounded-full"
           />

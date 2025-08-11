@@ -18,7 +18,7 @@ const page = async () => {
     <>
       <div className="h-2/3 rounded-2xl m-3 p-2 translate-y-15 bg-slate-100">
         <h1 className="text-xl font-bold text-zinc-500 mb-3">
-          Your upcoming Appointments
+          Your Appointments
         </h1>
         {appointments.length > 0 ? (
           appointments.map((app) => {
@@ -35,7 +35,7 @@ const page = async () => {
                     src={app.doctor.profile}
                   ></img>
                 </div>
-                <div className="font-thin w-30">{app.doctor.name}</div>
+                {(app.status !== "done")?<div className="font-thin w-30">{app.doctor.name}</div>:<a href={`/profile/${app.doctor.id}`} className="font-thin w-30">{app.doctor.name}</a>}
                 <div className="font-semibold">{app.date}</div>
                 <div className="font-semibold">{app.time}:00</div>
                 <div className="font-semibold">{app.status}</div>
