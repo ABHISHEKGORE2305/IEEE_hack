@@ -27,6 +27,7 @@ model User {
   dob DateTime?
   address String?
   phone String?
+  reports String[] @default([])
 }
 
 model Doctor {

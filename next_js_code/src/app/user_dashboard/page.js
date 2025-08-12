@@ -46,7 +46,7 @@ const Page = async() => {
                     <div className='w-1/2'>Date of Registration</div><div className='w-1/2 '>{user.createdAt.toLocaleDateString()}</div>
                 </div>
             </div>
-            <DownloadFiles />
+            <DownloadFiles files={user.reports}/>
             </div>
             <div className='flex h-[45%]'>
                 <div className='h-full w-full bg-slate-100 mt-4 p-4 rounded-lg overflow-y-scroll no-scrollbar'>

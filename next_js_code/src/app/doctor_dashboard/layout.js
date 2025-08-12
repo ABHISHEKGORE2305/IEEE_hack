@@ -2,7 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FiHome, FiCalendar, FiList, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
-import Button from "../../../IEEE_hack/next_js_code/src/components/ui/button";
+import Button from "@/components/ui/button";
+
 
 export default function UserDashboardLayout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
