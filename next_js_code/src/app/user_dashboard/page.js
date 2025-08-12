@@ -3,6 +3,7 @@ import React from 'react';
 import DownloadFiles from '../../components/ui/download-files';
 import isProtected from '../../components/ui/protected';
 import { PrismaClient } from '@prisma/client';
+import Chatbot from '@/components/ui/chatbot';
 
 const prisma = new PrismaClient()
 
@@ -112,6 +113,7 @@ const Page = async() => {
                         }
                 </div>
             </div>
+            <Chatbot/>
         </div>
     );
 }
