@@ -11,7 +11,8 @@ const page = async ({searchParams}) => {
        return redirect('/login');
    }
    
-   const query= await searchParams?.query||""
+   const params = await searchParams; // resolves to the actual object
+  const query = params?.query || "";
    console.log(query)
 
    return(
@@ -28,8 +29,8 @@ const page = async ({searchParams}) => {
           </div>
           
         </div>
-        {/* <p className="text-blue-200 text-lg font-light">Choose a clinic below to schedule your appointment</p> */}
-        <div className="-translate-x-100 mb-4">
+
+        <div className="absolute top-[40px] w-[30%] left-[41%] bg-white rounded-[5px] shadow-lg">
       <Search placeholder="search clinics" /> 
         </div>
       <Cliniclist query={query}></Cliniclist>

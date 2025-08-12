@@ -54,7 +54,8 @@ const Page = async() => {
                     {appointments.length>0? appointments.map(app => {
                             console.log(app.user)
                             return(
-                                <div key={app.id} className='h-15  bg-white flex p-2 items-center justify-between rounded-lg my-2'>
+                                <div key={app.id} className='relative my-2 h-15 justify-between flex items-center p-2 bg-purple-50 rounded-lg overflow-hidden before:absolute before:top-0 before:left-0 before:right-2
+    before:bg-blue-200 before:rounded-l-lg'>
                             <div className='h-full aspect-square rounded-full overflow-hidden'>
                                 <img width='100%' height='100%' src={app.doctor.profile}></img>
                             </div>
