@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FiHome, FiCalendar, FiList, FiUser, FiSettings, FiLogOut } from "react-icons/fi";
+import Button from "../../../IEEE_hack/next_js_code/src/components/ui/button";
 
 export default function UserDashboardLayout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -58,7 +59,7 @@ export default function UserDashboardLayout({ children }) {
         </div>
 
         {/* Logout */}
-        <div className="px-4">
+        {/* <div className="px-4">
           <button className="flex items-center gap-3 w-full px-2 py-2 rounded-lg hover:bg-blue-500 transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-white">
             <FiLogOut className="text-xl" />
             <span
@@ -69,7 +70,8 @@ export default function UserDashboardLayout({ children }) {
               Logout
             </span>
           </button>
-        </div>
+        </div> */}
+        <Button />
       </div>
 
       {/* Main Content */}
