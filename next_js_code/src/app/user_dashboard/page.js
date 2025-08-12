@@ -1,7 +1,6 @@
 
 import React from 'react';
-import CalendarClient from '../../components/ui/calender';
-
+import DownloadFiles from '../../components/ui/download-files';
 import isProtected from '../../components/ui/protected';
 import { PrismaClient } from '@prisma/client';
 
@@ -46,9 +45,7 @@ const Page = async() => {
                     <div className='w-1/2'>Date of Registration</div><div className='w-1/2 '>{user.createdAt.toLocaleDateString()}</div>
                 </div>
             </div>
-            <div className='-translate-y-10'>
-                <CalendarClient />
-            </div>
+            <DownloadFiles />
             </div>
             <div className='flex h-[45%]'>
                 <div className='h-full w-full bg-slate-100 mt-4 p-4 rounded-lg overflow-y-scroll no-scrollbar'>
