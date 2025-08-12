@@ -33,7 +33,7 @@ export default function UserDashboardLayout({ children }) {
               isExpanded ? "opacity-100" : "opacity-0 w-0 overflow-hidden"
             }`}
           >
-            CLINIK
+            DocBook
           </h1>
 
           {/* Menu */}
@@ -59,18 +59,6 @@ export default function UserDashboardLayout({ children }) {
         </div>
 
         {/* Logout */}
-        {/* <div className="px-4">
-          <button className="flex items-center gap-3 w-full px-2 py-2 rounded-lg hover:bg-blue-500 transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-white">
-            <FiLogOut className="text-xl" />
-            <span
-              className={`whitespace-nowrap transition-opacity duration-300 ${
-                isExpanded ? "opacity-100" : "opacity-0 w-0 overflow-hidden"
-              }`}
-            >
-              Logout
-            </span>
-          </button>
-        </div> */}
         <Button />
       </div>
 

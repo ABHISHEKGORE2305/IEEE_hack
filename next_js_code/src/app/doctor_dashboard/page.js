@@ -31,7 +31,7 @@ const Page = async () => {
   }
   if (doctor.verified) {
     return (
-      <div className="flex flex-row h-screen bg-slate-100">
+      <div className="h-full w-full py-4 px-6">
         <div className="overflow-y-scroll basis-190 no-scrollbar">
           <div className="bg-white rounded-2xl m-3 h-35 translate-y-15 p-6">
             <h1 className="text-3xl font-bold">
@@ -42,10 +42,10 @@ const Page = async () => {
               Have a nice day at work !!!
             </p>
           </div>
-          <div className="bg-slate-100  h-60 rounded-2xl m-3 p-1 translate-y-15  ">
-            <h1 className="font-bold text-xl text-zinc-500">Doctor report</h1>
+          <div className="bg-slate-100  h-50 rounded-2xl m-3 p-1 translate-y-15  ">
+            
             <div className="flex">
-              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3">
+              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3 shadow ">
                 <div className="h-1/2 w-full flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const Page = async () => {
                 </h1>
                 <h1 className="text-center font-thin">Total patients</h1>
               </div>
-              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3">
+              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3 shadow">
                 <div className="h-1/2 w-full flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ const Page = async () => {
                 </h1>
                 <h1 className="text-center font-thin">Appointments</h1>
               </div>
-              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3">
+              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3 shadow">
                 <div className="h-1/2 w-full flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ const Page = async () => {
                 </h1>
                 <h1 className="text-center font-thin">Today</h1>
               </div>
-              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3">
+              <div className="bg-white w-xl h-45 rounded-2xl p-2 m-3 shadow">
                 <div className="h-1/2 w-full flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +179,7 @@ const Page = async () => {
           </div>
         </div>
         <div className="bg-white basis-75 rounded-xl m-3 p-2  ">
-          <CalendarClient />
+         
         </div>
       </div>
     );
