@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import Navbar from '@/components/navbar';
+import Chatbot from '@/components/ui/chatbot';
 
 const Page = async () => {
   const cookieStore = await cookies();
@@ -167,6 +168,7 @@ const Page = async () => {
       <footer className="w-full py-4 px-4 bg-white/90 text-center text-blue-600 text-sm mt-auto shadow-inner">
         &copy; {new Date().getFullYear()} <span className="font-semibold">DocBook</span>. All rights reserved.
       </footer>
+      <Chatbot/>
     </div>
     );
   }
