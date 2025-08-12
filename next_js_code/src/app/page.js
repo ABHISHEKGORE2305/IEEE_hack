@@ -3,6 +3,7 @@
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import Navbar from '@/components/navbar';
 
 const Page = async () => {
   const cookieStore = await cookies();
@@ -10,20 +11,7 @@ const Page = async () => {
   if(!session){
     return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200">
-      <header className="w-full px-8 py-5 flex justify-between items-center bg-white/90 shadow-md sticky top-0 z-30">
-        <div className="flex items-center gap-2">
-          <svg className="h-8 w-8 text-blue-700" fill="none" viewBox="0 0 32 32">
-            <circle cx="16" cy="16" r="16" fill="#2563eb" />
-            <path d="M16 8v16M8 16h16" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/>
-          </svg>
-          <span className="text-2xl font-extrabold text-blue-700 tracking-tight">DocBook</span>
-        </div>
-        <nav className="flex gap-6">
-          <Link href="/login" className="text-blue-700 font-medium hover:text-blue-900 transition">Login</Link>
-          <Link href="/signup" className="text-blue-700 font-medium hover:text-blue-900 transition">Register</Link>
-          <Link href="/doctor_signup" className="text-blue-700 font-medium hover:text-blue-900 transition">For Doctors</Link>
-        </nav>
-      </header>
+    <Navbar />
       <main className="flex-1 flex flex-col items-center justify-start px-4 overflow-y-auto">
         {/* Hero Section */}
         <section className="w-full flex flex-col md:flex-row items-center justify-between gap-10 py-16 md:py-24 max-w-7xl mx-auto">
@@ -32,17 +20,17 @@ const Page = async () => {
               Your Health, <span className="text-blue-600">Your Schedule</span>
             </h2>
             <p className="text-lg md:text-xl text-blue-900 mb-8 font-medium max-w-lg">
-              Book appointments with trusted doctors, manage your healthcare journey, and take control of your well-being—all in one place.
+              Book appointments with trusted doctors, manage your healthcare journey, and take control of your well-being all in one place.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full justify-start">
               <Link href="/signup" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow transition-all duration-200">
+                <button className="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full text-lg shadow transition-all duration-200">
                   Get Started
                 </button>
               </Link>
               <Link href="/login" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto bg-white border-2 border-blue-700 text-blue-700 font-semibold py-3 px-8 rounded-lg text-lg hover:bg-blue-50 transition-all duration-200">
-                  Login
+                <button className="w-full sm:w-auto bg-white border-2 border-blue-700 text-blue-700 font-semibold py-3 px-8 rounded-full text-lg hover:bg-blue-50 transition-all duration-200">
+                  Log In
                 </button>
               </Link>
             </div>
@@ -56,46 +44,80 @@ const Page = async () => {
 
               loading="eager"
             />
-          </div>
+            
+        
+    </div> 
+    
+           {/* Floating Cards */}
+      <div className="absolute top-5 left-4 bg-white/90 shadow-lg rounded-xl p-4 w-40 text-center z-20" style={{ left: '50%', top: '215px' }}>
+        <h4 className="text-sm font-bold text-blue-700">24/7 Care</h4>
+        <p className="text-xs text-gray-600">Always available</p>
+      </div>
+
+      <div className="absolute bottom-10 right-1 bg-white/90 shadow-lg rounded-xl p-4 w-40 text-center z-20" style={{ right: '75px', bottom: '80px' }}>
+        <h4 className="text-sm font-bold text-blue-700">500+ Doctors</h4>
+        <p className="text-xs text-gray-600">Trusted experts</p>
+      </div>
         </section>
+
         {/* Features Section */}
         <section className="w-full py-12 md:py-20 bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100">
-          <div className="max-w-6xl mx-auto flex flex-col items-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-blue-800 mb-10 text-center">Why Choose DocBook?</h3>
-            <div className="flex flex-col md:flex-row gap-10 w-full justify-center">
-              <div className="bg-white/90 rounded-2xl shadow-lg p-8 flex flex-col items-center max-w-xs w-full">
-                <img
-                  src="https://images.unsplash.com/photo-1519494080410-f9aa8f52f1e1?auto=format&fit=crop&w=400&q=80"
-                  alt="Instant Booking"
-                  className="h-24 w-24 rounded-full object-cover mb-4 border-2 border-blue-200"
-                  loading="lazy"
-                />
-                <h4 className="text-lg font-bold text-blue-700 mb-1">Instant Booking</h4>
-                <p className="text-sm text-blue-900 text-center">Find and book appointments with top doctors in just a few clicks.</p>
-              </div>
-              <div className="bg-white/90 rounded-2xl shadow-lg p-8 flex flex-col items-center max-w-xs w-full">
-                <img
-                  src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
-                  alt="Reminders & Records"
-                  className="h-24 w-24 rounded-full object-cover mb-4 border-2 border-blue-200"
-                  loading="lazy"
-                />
-                <h4 className="text-lg font-bold text-blue-700 mb-1">Reminders & Records</h4>
-                <p className="text-sm text-blue-900 text-center">Stay on top of your health with appointment reminders and easy access to your records.</p>
-              </div>
-              <div className="bg-white/90 rounded-2xl shadow-lg p-8 flex flex-col items-center max-w-xs w-full">
-                <img
-                  src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=400&q=80"
-                  alt="Trusted Professionals"
-                  className="h-24 w-24 rounded-full object-cover mb-4 border-2 border-blue-200"
-                  loading="lazy"
-                />
-                <h4 className="text-lg font-bold text-blue-700 mb-1">Trusted Professionals</h4>
-                <p className="text-sm text-blue-900 text-center">Connect with verified and experienced healthcare providers.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+  <div className="max-w-6xl mx-auto flex flex-col items-center px-4">
+    
+    {/* Section Heading */}
+    <h3 className="text-2xl md:text-3xl font-bold text-blue-800 mb-10 text-center">
+      Why Choose DocBook?
+    </h3>
+
+    {/* Cards Container */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+
+      {/* Card 1 */}
+      <div className="bg-white/90 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center p-6 hover:shadow-xl transition-shadow duration-300">
+        <img
+          src="https://i.pinimg.com/736x/68/8a/3e/688a3e912070823d7d91ec0236b4d002.jpg"
+          alt="Instant Booking"
+          className="h-48 w-full object-cover mb-4 rounded-md"
+          loading="lazy"
+        />
+        <h4 className="text-lg font-bold text-blue-700 mb-2 text-center">Instant Booking</h4>
+        <p className="text-sm text-blue-900 text-center">
+          Find and book appointments with top doctors in just a few clicks.
+        </p>
+      </div>
+
+      {/* Card 2 */}
+      <div className="bg-white/90 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center p-6 hover:shadow-xl transition-shadow duration-300">
+        <img
+          src="https://i.pinimg.com/736x/33/9f/53/339f53c3ee75557e32b13160fced844e.jpg"
+          alt="Reminders & Records"
+          className="h-48 w-full object-cover mb-4 rounded-md"
+          loading="lazy"
+        />
+        <h4 className="text-lg font-bold text-blue-700 mb-2 text-center">Reminders & Records</h4>
+        <p className="text-sm text-blue-900 text-center">
+          Stay on top of your health with appointment reminders and easy access to your records.
+        </p>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-white/90 rounded-2xl shadow-lg overflow-hidden flex flex-col items-center p-6 hover:shadow-xl transition-shadow duration-300">
+        <img
+          src="https://i.pinimg.com/1200x/5d/22/ec/5d22ec6eb13b5f6b83aaf3fcb92e55f0.jpg"
+          alt="Trusted Professionals"
+          className="h-48 w-full object-cover mb-4 rounded-md"
+          loading="lazy"
+        />
+        <h4 className="text-lg font-bold text-blue-700 mb-2 text-center">Trusted Professionals</h4>
+        <p className="text-sm text-blue-900 text-center">
+          Connect with verified and experienced healthcare providers.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
         {/* Testimonials Section */}
         <section className="w-full py-12 md:py-20 flex flex-col items-center bg-white/80">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-800 mb-10 text-center">What Our Users Say</h3>
