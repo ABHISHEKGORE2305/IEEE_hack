@@ -4,6 +4,7 @@ import CalendarClient from '../../components/ui/calender';
 
 import isProtected from '../../components/ui/protected';
 import { PrismaClient } from '@prisma/client';
+import Chatbot from '@/components/ui/chatbot';
 
 const prisma = new PrismaClient()
 
@@ -115,6 +116,7 @@ const Page = async() => {
                         }
                 </div>
             </div>
+            <Chatbot/>
         </div>
     );
 }
