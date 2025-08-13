@@ -35,7 +35,7 @@ export default function FilesCard({files}) {
 
             <div className="text-sm text-gray-500 flex items-center">
               {/* Default: Show file size; On hover: Show download icon */}
-              <span className="block group-hover:hidden"></span>
+              <span className="block group-hover:hidden">127 kb</span>
               <button className="hidden group-hover:block p-1 rounded-full hover:bg-blue-100">
                 <FiDownload className="text-blue-600 text-lg" />
               </button>

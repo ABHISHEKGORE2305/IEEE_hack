@@ -62,7 +62,7 @@ const Page = async () => {
         </section>
 
         {/* Features Section */}
-        <section className="w-full py-12 md:py-20 bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100">
+        <section id="services" className="w-full py-12 md:py-20 bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100">
   <div className="max-w-6xl mx-auto flex flex-col items-center px-4">
     
     {/* Section Heading */}
@@ -120,7 +120,7 @@ const Page = async () => {
 </section>
 
         {/* Testimonials Section */}
-        <section className="w-full py-12 md:py-20 flex flex-col items-center bg-white/80">
+        <section id="testimonials" className="w-full py-12 md:py-20 flex flex-col items-center bg-white/80">
           <h3 className="text-2xl md:text-3xl font-bold text-blue-800 mb-10 text-center">What Our Users Say</h3>
           <div className="flex flex-col md:flex-row gap-8 max-w-5xl w-full justify-center">
             <div className="bg-blue-50 rounded-2xl shadow p-6 flex flex-col items-center max-w-sm w-full">
