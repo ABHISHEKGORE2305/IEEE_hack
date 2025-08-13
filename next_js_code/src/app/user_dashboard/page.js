@@ -37,7 +37,7 @@ const Page = async() => {
             <div className='h-full aspect-4/3 bg-slate-100 mt-4 ml-4 p-4 rounded-lg'>
                 <h1 className='text-2xl font-semibold mb-10'>General Information</h1>
                 <div className='mt-2 border-b-1 border-zinc-400 pb-2 flex'>
-                    <div className='w-1/2'>Date of Birth</div><div className='w-1/2 '>{user.dob?.toLocaleTimeString()}</div>
+                    <div className='w-1/2'>Date of Birth</div><div className='w-1/2 '>{user.dob?.toLocaleDateString()}</div>
                 </div>
                 <div className='mt-2 border-b-1 border-zinc-400 pb-2 flex'>
                     <div className='w-1/2'>Address</div><div className='w-1/2 '>{user.address}</div>
