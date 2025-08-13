@@ -4,8 +4,7 @@ import { redirect } from "next/navigation";
 const prisma = new PrismaClient();
 
 const page = async ({ params }) => {
-  const doctorId = params.slug;
-  const clinicId = params.id;
+  const { id: clinicId, slug: doctorId } = await params;
   const user = await isProtected();
   const doctor = await prisma.doctor.findUnique({
     where: {

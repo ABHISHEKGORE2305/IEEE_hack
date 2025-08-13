@@ -43,18 +43,18 @@ const page = () =>{
     }
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300">
-            <div className="bg-white  rounded-3xl shadow-2xl flex flex-col md:flex-row w-full max-w-3xl min-h-[480px] overflow-hidden border border-blue-100">
+            <div className="bg-slate-100 gap-0.5 rounded-3xl shadow-2xl flex flex-col md:flex-row w-full max-w-5xl min-h-[600px] overflow-hidden border border-blue-100">
                 {/* Image Side */}
-                <div className="hidden md:flex md:w-200 bg-blue-200 items-center justify-center p-8">
+                <div className="hidden md:flex md:w-200 bg-blue-200 items-center justify-center">
                     <img
-                        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                        src="https://i.pinimg.com/1200x/fa/26/e0/fa26e0638127021a3b41efbbaab82332.jpg"
                         alt="Doctor and patient"
-                        className="rounded-2xl shadow-xl w-full h-[320px] object-cover border-4 border-blue-100"
+                        className=" w-full h-full object-cover"
                         loading="eager"
                     />
                 </div>
                 {/* Form Side */}
-                <div className="w-full md:w-200 flex flex-col justify-center p-8">
+                <div className="w-full md:w-200 bg-white flex flex-col justify-center p-8">
                     <h1 className="text-3xl font-extrabold text-blue-800 mb-6 text-center tracking-tight">Sign up for DocBook</h1>
                     <form action={signup} className="flex flex-col gap-5">
                         <div>

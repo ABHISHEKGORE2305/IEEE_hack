@@ -52,11 +52,11 @@ async function Cliniclist({query}) {
 
   return (
     
-      <div className="w-full max-w-5xl">
+      <div className="w-full ">
         
         {/* Make the cards scrollable */}
-        <div className="max-h-[60vh] overflow-y-auto no-scrollbar">
-          <ol className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="h-full overflow-y-auto no-scrollbar">
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-2">
             {filteredclinics.map((clinic) => (
               <li
                 key={clinic.id}
