@@ -47,6 +47,8 @@ model Doctor {
   profile String @default("https://cdn-icons-png.flaticon.com/512/6073/6073873.png")
   rating Int @default(0)
   experience Int @default(0)
+  docrating Int[] @default([])
+  finalrating Int @default(0)
 }
 
 model Clinic {

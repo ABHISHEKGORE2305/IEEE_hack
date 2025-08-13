@@ -21,7 +21,16 @@ export async function POST(req) {
         await prisma.doctor.update({
             where: { id:doctorid },
             data: { 
-                rating: (doctor.rating+rating)/2
+                rating: (doctor.rating+rating),
+                docrating:{
+                    push:rating
+                }
+            }
+        });
+        await prisma.doctor.update({
+            where: { id:doctorid },
+            data: { 
+                finalrating: (doctor.rating)/doctor.docrating.length
             }
         });
 

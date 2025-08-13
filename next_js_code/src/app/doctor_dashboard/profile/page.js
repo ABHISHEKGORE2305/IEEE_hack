@@ -69,7 +69,7 @@ const Page = () => {
                     </div>
                     <div className="bg-blue-50 rounded-lg px-4 py-2 text-center">
                         <div className="text-sm text-gray-500">Rating</div>
-                        <div className="font-semibold text-gray-800">{doctor?.rating || 0} / 5</div>
+                        <div className="font-semibold text-gray-800">{doctor?.finalrating || 0} / 5</div>
                     </div>
                     <div className="bg-blue-50 rounded-lg px-4 py-2 text-center">
                         <div className="text-sm text-gray-500">Verified</div>
