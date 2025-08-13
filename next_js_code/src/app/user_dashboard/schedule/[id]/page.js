@@ -23,7 +23,8 @@ const page = async ({params,searchParams}) => {
     }
     const doctors = await prisma.doctor.findMany({
         where: {
-            clinicId: clinicId
+            clinicId: clinicId,
+            verified: true
         }
     })
     

@@ -17,6 +17,9 @@ const Page = async() => {
         },
         include:{
             doctor: true
+        },
+        orderBy:{
+            createdAt: 'desc'
         }
     })
     return (

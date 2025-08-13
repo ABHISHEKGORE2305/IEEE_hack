@@ -16,6 +16,9 @@ const Page = async () => {
     include: {
       user: true,
     },
+        orderBy:{
+            createdAt: 'desc'
+        }
   });
   const patients = appointments.filter((app) => app.status == "done");
   const today = new Date();

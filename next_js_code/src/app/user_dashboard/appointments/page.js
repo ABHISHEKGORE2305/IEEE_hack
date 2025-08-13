@@ -11,7 +11,10 @@ const page = async () => {
       },
       include:{
         doctor: true
-      }
+      },
+        orderBy:{
+            createdAt: 'desc'
+        }
   })
   console.log(appointments)
   return (

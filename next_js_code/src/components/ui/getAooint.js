@@ -12,6 +12,9 @@ export default async function getAppoint(id){
         },
         include:{
             user: true
+        },
+        orderBy:{
+            createdAt: 'desc'
         }
     })
     return appointments
