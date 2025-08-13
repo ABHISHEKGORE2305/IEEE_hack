@@ -31,11 +31,10 @@ export default function Navbar() {
 
 
       <nav className="flex gap-6 items-center justify-between w-full max-w-4xl" >
-        <ul className="hidden md:flex gap-12 text-base items-center font-medium" style={{ margin: '0 auto' , marginLeft: '-70px'}}>
+        <ul className="hidden md:flex gap-[100px] text-base items-center font-medium" style={{ margin: '0 auto' , marginLeft: '-70px'}}>
           <li><a href="/" className="relative pb-1.5 text-blue-600 border-b-2 border-blue-600">Home</a></li>
           <li><a href="#services" className="relative pb-1.5 text-gray-800/80 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent transition-colors">Our Services</a></li>
-          <li><a href="#about" className="relative pb-1.5 text-gray-800/80 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent transition-colors">About Us</a></li>
-          <li><a href="#contact" className="relative pb-1.5 text-gray-800/80 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent transition-colors">Contact</a></li>
+          <li><a href="#testimonials" className="relative pb-1.5 text-gray-800/80 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent transition-colors">About Us</a></li>
         </ul>
 
         <div className="flex gap-4" style={{position: 'absolute', right: '20px'}}>

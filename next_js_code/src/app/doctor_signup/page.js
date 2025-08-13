@@ -47,7 +47,7 @@ const page = ()=>{
                 {/* Image Side */}
                 <div className="hidden md:flex md:w-200 bg-blue-200 items-center justify-center p-8">
                     <img
-                        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                        src="https://i.pinimg.com/1200x/0c/9b/89/0c9b89b62ba04b4b4740f4ce2da28b54.jpg"
                         alt="Doctor and patient"
                         className="rounded-2xl shadow-xl w-full h-[320px] object-cover border-4 border-blue-100"
                         loading="eager"

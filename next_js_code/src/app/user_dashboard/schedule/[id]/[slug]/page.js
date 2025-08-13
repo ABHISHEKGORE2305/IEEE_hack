@@ -4,8 +4,7 @@ import { redirect } from "next/navigation";
 const prisma = new PrismaClient();
 
 const page = async ({ params }) => {
-  const doctorId = params.slug;
-  const clinicId = params.id;
+  const { id: clinicId, slug: doctorId } = await params;
   const user = await isProtected();
   const doctor = await prisma.doctor.findUnique({
     where: {
@@ -64,7 +63,7 @@ const page = async ({ params }) => {
 
       {/* Center Panel: Doctor Details & How to Book */}
       <div className="flex flex-col items-center justify-center col-span-1">
-        <div className="bg-blue-200 w-80 h-auto m-2 p-6 rounded-2xl flex flex-col items-center justify-center shadow-lg">
+        <div className="bg-blue-200 w-full h-auto m-2 p-6 rounded-2xl flex flex-col items-center justify-center shadow-lg">
           <h2 className="text-xl font-bold text-blue-900 mb-4">Doctor Details</h2>
           <div className="w-full space-y-3">
             <div className="flex justify-between items-center bg-blue-100 rounded-xl px-4 py-2">
@@ -119,6 +118,7 @@ const page = async ({ params }) => {
           </label>
           <input
             type="date"
+            max="2025-08-20"
             name="date"
             id="date"
             className="rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white text-blue-900 p-2"

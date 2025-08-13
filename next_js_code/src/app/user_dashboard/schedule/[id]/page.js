@@ -42,9 +42,8 @@ const page = async ({params,searchParams}) => {
           {/* Clinic Info Header */}
           <div className="bg-blue-500 rounded-2xl p-6 m-2 col-span-4 shadow flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-white mb-2">Schedule your appointments at <span className="text-blue-100">{clinic.name}</span></h1>
-              <p className="text-blue-100 text-sm">Address: {clinic.address}</p>
-              <p className="text-blue-100 text-sm">Phone: {clinic.phone}</p>
+              <h1 className="text-2xl font-bold text-white mb-2">Schedule Your Appointments With Available Doctors </h1>
+              <p className="text-white text-sm">Find the best doctors available at your convenience.</p>
             </div>
             
             <div className="mt-4 md:mt-0">
@@ -54,7 +53,7 @@ const page = async ({params,searchParams}) => {
               </svg>
             </div>
           </div>
-          <Search placeholder="search doctors" query={query}/>
+          
           
           {/* Doctors List */}
           <ol className="col-span-4 flex flex-wrap gap-6 justify-center">

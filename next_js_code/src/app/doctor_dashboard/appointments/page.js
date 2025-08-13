@@ -98,8 +98,8 @@ const Page = () => {
                                 <StatusButton color="red" status="done" id={app.id}>done</StatusButton>
                                 <StatusButton color="red" status="cancel" id={app.id}>cancel</StatusButton>
                                 <StatusButton color="blue" status="accept" id={app.id}>accept</StatusButton>
-                                
-                        <CldUploadWidget
+                                {(app.status == "done")?
+                                    <CldUploadWidget
                             uploadPreset="ieeehacka"
                             onSuccess={async (result, { widget }) => {
                         
@@ -119,6 +119,8 @@ const Page = () => {
                                 </button>
                             )}
                         </CldUploadWidget>
+                                :<></>}
+                            
                     
 
                                 <div className="h-2/3 aspect-square flex items-center justify-center">
