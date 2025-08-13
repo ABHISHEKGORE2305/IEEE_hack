@@ -1,7 +1,14 @@
+import { PrismaClient } from '@prisma/client'
 import React from 'react'
-function page() {
-  return (
 
+const prisma = new PrismaClient()
+async function page() {
+  const doctors = await prisma.doctor.findMany({});
+  const clinics = await prisma.clinic.findMany({});
+  const appointments = await prisma.appointment.findMany({});
+  const users = await prisma.user.findMany({});
+  console.log(users)
+  return (
     <div className="rounded-2xl min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-blue-100 flex flex-col items-center py-12 px-4">
       <div className="w-full max-w-7xl">
         <h1 className="text-4xl font-extrabold text-blue-900 mb-2 text-center tracking-tight drop-shadow-sm">
@@ -19,7 +26,7 @@ function page() {
               </svg>
             </div>
             <span className="text-5xl font-bold text-blue-700 mb-2">
-              120
+              {users.length}
             </span>
             <span className="text-lg font-medium text-gray-600 tracking-wide">Patients</span>
           </div>
@@ -31,7 +38,7 @@ function page() {
               </svg>
             </div>
             <span className="text-5xl font-bold text-green-700 mb-2">
-              35
+              {doctors.length}
             </span>
             <span className="text-lg font-medium text-gray-600 tracking-wide">Doctors</span>
           </div>
@@ -43,7 +50,7 @@ function page() {
               </svg>
             </div>
             <span className="text-5xl font-bold text-purple-700 mb-2">
-              8
+              {clinics.length}
             </span>
             <span className="text-lg font-medium text-gray-600 tracking-wide">Clinics</span>
           </div>
@@ -55,7 +62,7 @@ function page() {
               </svg>
             </div>
             <span className="text-5xl font-bold text-yellow-700 mb-2">
-              210
+              {appointments.length}
             </span>
             <span className="text-lg font-medium text-gray-600 tracking-wide">Successful Appointments</span>
           </div>

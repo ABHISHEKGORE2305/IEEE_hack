@@ -24,7 +24,7 @@ export default function Navbar() {
           <circle cx="16" cy="16" r="16" fill="#2563eb" />
           <path d="M16 8v16M8 16h16" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/>
         </svg>
-        <span className="text-2xl font-extrabold text-blue-700 tracking-tight">DocBook</span>
+        <a href='/' className="text-2xl font-extrabold text-blue-700 tracking-tight" >DocBook</a>
       </div>
 
     
