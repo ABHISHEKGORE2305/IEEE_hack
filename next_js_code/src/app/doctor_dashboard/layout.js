@@ -12,7 +12,7 @@ export default function UserDashboardLayout({ children }) {
     { name: "Dashboard", icon: <FiHome />, href: "/doctor_dashboard" },
     { name: "Appointments", icon: <FiList />, href: "/doctor_dashboard/appointments" },
     { name: "Profile", icon: <FiUser />, href: "/doctor_dashboard/profile" },
-    { name: "Settings", icon: <FiSettings />, href: "/settings" },
+    
   ];
 
   return (
